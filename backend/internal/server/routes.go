@@ -7,5 +7,6 @@ import (
 )
 
 func RegisterRoutes(r *chi.Mux){
-	r.Post("/login",handlers.Signup)
+	r.Post("/signup",handlers.Signup)
+	r.Post("/login",handlers.Login)
 }
