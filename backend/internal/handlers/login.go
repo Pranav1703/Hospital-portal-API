@@ -6,6 +6,7 @@ import (
 	"hospital-portal/internal/database/model"
 	util "hospital-portal/internal/utils"
 	"log"
+	"time"
 
 	"net/http"
 )
@@ -41,4 +42,19 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Invalid credentials", http.StatusUnauthorized)
 		return
 	}
+}
+
+func Logout(w http.ResponseWriter, r *http.Request) {
+	http.SetCookie(w, &http.Cookie{
+		Name:     "access-token",
+		Value:    "",
+		Path:     "/",
+		HttpOnly: true,
+		Secure:   false, 
+		SameSite: http.SameSiteLaxMode,
+		Expires:  time.Unix(0, 0),
+		MaxAge:   -1,
+	})
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("Logged out successfully"))
 }

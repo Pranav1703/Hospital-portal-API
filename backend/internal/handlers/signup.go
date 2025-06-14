@@ -44,5 +44,5 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, result.Error.Error(), 500)
 	}
 	log.Println("new user created. ID:",newUser.ID)
-	
+	w.Write([]byte(fmt.Sprintf("new user created. ID: %d",newUser.ID)))
 }
