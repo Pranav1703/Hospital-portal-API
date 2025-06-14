@@ -46,4 +46,4 @@ PUT	    /patients/{id}	 Receptionist only
 DELETE	/patients/{id}	 Receptionist only
 
 ## postman docs
-[📦 Postman Collection](hospital-portal.postman_collection.json)
+[📦 Postman Collection](hospitalAPi.postman_collection.json)
