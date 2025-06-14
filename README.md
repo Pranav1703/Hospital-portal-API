@@ -4,7 +4,7 @@ A simple Go backend for managing hospital patient data with role-based access fo
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 - Go + Chi Router  
 - PostgreSQL + GORM  
@@ -12,7 +12,7 @@ A simple Go backend for managing hospital patient data with role-based access fo
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone & Setup**
    ```bash
@@ -32,18 +32,23 @@ A simple Go backend for managing hospital patient data with role-based access fo
     go run cmd/main.go
 
 ## API Routes
-Auth
-Method	Endpoint	Role
-POST	/signup	    Public
-POST	/login	    Public
-POST	/logout	    Authenticated
 
-Patients
-Method	Endpoint	     Access
-GET	    /patients	     Doctor, Receptionist
-POST	/patients	     Receptionist only
-PUT	    /patients/{id}	 Receptionist only
-DELETE	/patients/{id}	 Receptionist only
+### Auth
+
+| Method | Endpoint   | Access         |
+|--------|------------|----------------|
+| POST   | `/signup`  | Public         |
+| POST   | `/login`   | Public         |
+| POST   | `/logout`  | Authenticated  |
+
+### Patients
+
+| Method | Endpoint           | Access              |
+|--------|--------------------|---------------------|
+| GET    | `/patients`        | Doctor, Receptionist|
+| POST   | `/patients`        | Receptionist only   |
+| PUT    | `/patients/{id}`   | Receptionist only   |
+| DELETE | `/patients/{id}`   | Receptionist only   |
 
 ## postman docs
 [📦 Postman Collection](hospitalAPi.postman_collection.json)
